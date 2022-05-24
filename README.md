@@ -1,22 +1,21 @@
-# 143 nedir?
-143,poketalein kullandığı anonim veri toplayıcıdır (https://143.poketalebot.com/media/dnt/143.js)
+# wtf is 143?
+143 is our anon data collector (https://143.poketalebot.com/media/dnt/143.js)
 
-143,do not track ile çalışır ve gizliliğe önem verir.
+143 works whit do not track and its built for privacy.
 
-# 143 ün yaptığı istekler (DNT AÇIK DEĞİL İSE)<br>
+# The requests being made (if do not track is false)<br>
 ![image](https://user-images.githubusercontent.com/65588168/170084831-a83f913d-5b02-49e2-b0dd-5413a3aa746a.png)<br><br>
-143,şu websitelere request atar:<br>
+143 makes requests to these website<br>
 https://cdn.segment.com/ <br>
 https://www.googletagmanager.com/<br>
 https://static.hotjar.com<br>
 https://www.google-analytics.com<br>
 
-tüm veriler anonimdir,ve hiç bir veri o veriyi aldığımız kişinin siz olduğunu belli etmez.
+all data being "shared" is anonymous and can not seen by the companies that provide these products.
 
-# Nasıl çalışır?
+# How does it work then?
 
-
-143 analitik dosyası (143.js) şöyle gözükmektedir;
+143.js should look like this;
 ```js
 if (typeof Mozilla === "undefined") {
   var Mozilla = {};
@@ -137,14 +136,13 @@ if (Mozilla && !Mozilla.dntEnabled()) {
   })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
 }
 ```
-Şimdi,her kısmı açıklayalım.
+Now, let's explain each part.
 ```js
 if (typeof Mozilla === "undefined") {
   var Mozilla = {};
 }
 ```
-bu kısımda,mozilla objesini tanımlıyoruz.
-
+in this part,we define the mozilla object.
 ```js
 Mozilla.dntEnabled = function (dnt, ua) {
   "use strict";
@@ -176,9 +174,9 @@ Mozilla.dntEnabled = function (dnt, ua) {
   return dntStatus === "Enabled" ? true : false;
 };
 ```
-bu kısım,do not track (https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature) ın açık olup olmadığını belirler.
+this part is our dnt helper (forked from:https://github.com/schalkneethling/dnt-helper)
 
-### Google tag manager ve analytics
+### Google tag manager and analytics
 ```js
 (function (w, d, s, l, i) {
     w[l] = w[l] || [];
@@ -206,10 +204,10 @@ bu kısım,do not track (https://support.mozilla.org/en-US/kb/how-do-i-turn-do-n
   gaScript.src = "https://www.google-analytics.com/analytics.js";
   document.head.appendChild(gaScript);
 ```
-gtm ve ga scriptimiz buna benzemektedir. googletagmanager ve google analytics kullanımımız hakkında şurda çok güzel bir açıklaması vardır:<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1122305#c8">link</a>
+Our gtm and ga script looks like this. Here's a very nice explanation of our use of googletagmanager and google analytics:https://bugzilla.mozilla.org/show_bug.cgi?id=1122305#c8
 
 ### Segment
-segment,analatik programından daha farklı birşeydir. daha çok bir veri yönetme programıdır. segment hakkında daha fazla bilgi için : https://segment.com/
+segment is something different from the analytics platforms. it is more of a data management program. For more information about the segment: https://segment.com/ (its also foss!)
 ```js
   !(function () {
     var analytics = (window.analytics = window.analytics || []);
@@ -261,7 +259,7 @@ segment,analatik programından daha farklı birşeydir. daha çok bir veri yöne
 ```
 
 ### Hotjar
-hotjar bir heatmap analatik programıdır. <a href="https://hotjar.com">websiteleri</a>
+hotjar is a heatmap analytics program. <a href="https://hotjar.com">their website</a>
 ```js
 (function (h, o, t, j, a, r) {
     h.hj =
@@ -278,19 +276,18 @@ hotjar bir heatmap analatik programıdır. <a href="https://hotjar.com">websitel
   })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
 ```
 
-# LEGAL ŞEYLER
- 
-Poketale ürünleri sizin verilerinizi asla satmaz,paylaşmaz Ancak,poketale ürünlerini iyileştirmek için birkaç telemetri kullanıyoruz. 
+# LEGAL
+Poketale products will never sell or share your data. However, we do use several telemetry to improve poketale products.
 
-Telemetri, belirli bir kullanıcının veya cihazın, veri toplayıcıya ait olmayan birden çok web sitesi veya uygulamadaki etkinliğine ve bu verilerin saklanması, kullanılması veya paylaşılmasına ilişkin verilerin toplanmasıdır.
+Telemetry is the collection of data regarding the activity of a particular user or device on multiple websites or applications that do not belong to the data collector, and the storage, use or sharing of this data.
 
-Poketale asla gizli mesajlarınızı göremez,mesajlarınızı okumayaz,sizin email adresinizi göremez,verilerinizi başka firmalara satamaz veya verilerinizi toplayamaz. özel bilgilierinizi istemez veya toplamaz. asla ama asla. ancack ürünlerimizi iyileştirmek için birkaç analitik programı kullanırız. 
+Poketale can never see your secret messages, read your messages, see your email address, sell your data to other companies or collect your data. never, ever. however, we use several analytics programs to improve our products.
 
-bu programlara sağlanan veriler,tamamen anonimdir ve herhangibi bir firma (evet,bizde dhl) bu verileri göremeyiz.
+The data provided to these programs is completely anonymous and no company (yes, us included) can see this data.
 
-### NASIL AYRILIRIM?
-poketalein anlytics snippeti DO NOT TRACK yada DNT sinyalini destekler. do not track hakkında daha fazla bilgi için şu makaleyi okuyabilirsiniz;https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature
+### OPT-OUT
+The poketale analytics snippet supports DO NOT TRACK or DNT signal. For more information about do not track, you can read this article: https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature
 
-eğer dnt de kullnanmıyorsanız,ublock origin yada ddg nun tarayıcı eklentisini kullanbilrsiniz;
+if you are not using dnt, you can use ublock origin or ddg's browser addon;
 https://duckduckgo.com/app<br>
 https://ublockorigin.com/
