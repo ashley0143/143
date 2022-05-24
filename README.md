@@ -287,3 +287,9 @@ Telemetri, belirli bir kullanıcının veya cihazın, veri toplayıcıya ait olm
 Poketale asla gizli mesajlarınızı göremez,mesajlarınızı okumayaz,sizin email adresinizi göremez,verilerinizi başka firmalara satamaz veya verilerinizi toplayamaz. özel bilgilierinizi istemez veya toplamaz. asla ama asla. ancack ürünlerimizi iyileştirmek için birkaç analitik programı kullanırız. 
 
 bu programlara sağlanan veriler,tamamen anonimdir ve herhangibi bir firma (evet,bizde dhl) bu verileri göremeyiz.
+
+poketalein anlytics snippeti DO NOT TRACK yada DNT sinyalini destekler. do not track hakkında daha fazla bilgi için şu makaleyi okuyabilirsiniz;https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature
+
+eğer dnt de kullnanmıyorsanız,ublock origin yada ddg nun tarayıcı eklentisini kullanbilrsiniz;
+https://duckduckgo.com/app
+https://ublockorigin.com/
