@@ -1,3 +1,6 @@
+TÜRKÇE İÇİN : <a href="https://github.com/iamashley0/143/blob/main/README-tr.md">TIKLA</a>
+
+
 # wtf is 143?
 143 is our anon data collector (https://143.poketalebot.com/media/dnt/143.js)
 
