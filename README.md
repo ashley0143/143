@@ -288,8 +288,9 @@ Poketale asla gizli mesajlarınızı göremez,mesajlarınızı okumayaz,sizin em
 
 bu programlara sağlanan veriler,tamamen anonimdir ve herhangibi bir firma (evet,bizde dhl) bu verileri göremeyiz.
 
+### NASIL AYRILIRIM?
 poketalein anlytics snippeti DO NOT TRACK yada DNT sinyalini destekler. do not track hakkında daha fazla bilgi için şu makaleyi okuyabilirsiniz;https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature
 
 eğer dnt de kullnanmıyorsanız,ublock origin yada ddg nun tarayıcı eklentisini kullanbilrsiniz;
-https://duckduckgo.com/app
+https://duckduckgo.com/app<br>
 https://ublockorigin.com/
