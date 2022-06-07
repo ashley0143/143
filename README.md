@@ -138,6 +138,18 @@ if (Mozilla && !Mozilla.dntEnabled()) {
     a.appendChild(r);
   })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
 }
+if (Mozilla && Mozilla.dntEnabled()) {
+  function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+    deleteAllCookies()
+}
 ```
 Now, let's explain each part.
 ```js
@@ -279,6 +291,22 @@ hotjar is a heatmap analytics program. <a href="https://hotjar.com">their websit
   })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
 ```
 
+### Remove cookies
+this part removes cookies if the user enabled dnt!
+```js
+if (Mozilla && Mozilla.dntEnabled()) {
+  function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+    deleteAllCookies()
+}
+``` 
 # LEGAL
 Poketale products will never sell or share your data. However, we do use several telemetry to improve poketale products.
 
